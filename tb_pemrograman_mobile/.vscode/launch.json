@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "tb_pemrograman_mobile",
+            "cwd": "tb_pemrograman_mobile",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "tb_pemrograman_mobile (profile mode)",
+            "cwd": "tb_pemrograman_mobile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "tb_pemrograman_mobile (release mode)",
+            "cwd": "tb_pemrograman_mobile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
