@@ -6,7 +6,7 @@ class RegistPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, 
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'venice'),
       color: Colors.green,
     );
@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             SizedBox(height: 100),

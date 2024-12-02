@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tb_pemrograman_mobile/homepage.dart';
 import 'package:tb_pemrograman_mobile/login.dart';
 import 'package:tb_pemrograman_mobile/regist.dart';
+import 'package:tb_pemrograman_mobile/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: RegistPage(),
+      home: Splash_screen(),
     );
   }
 }

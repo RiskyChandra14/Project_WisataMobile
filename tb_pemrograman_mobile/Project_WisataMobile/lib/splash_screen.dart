@@ -28,8 +28,8 @@ class Splash extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 412,
-          height: 917,
+          width: 500,
+          height: 920,
           padding: const EdgeInsets.symmetric(vertical: 128),
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
@@ -45,12 +45,12 @@ class Splash extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 511,
+                width: 480,
                 height: 400,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(
-                        "https://ucarecdn.com/57e2cb97-d943-40d8-bbb1-b82431197f0a/kota_bunga__2_removebgpreview.png"), // Gambar dari CDN
+                        "https://ucarecdn.com/dedda0fc-4ce3-4958-9383-9abf54d3ee0b/GIFTRANSFARAN.gif"), // Gambar dari CDN
                     fit: BoxFit.fill,
                   ),
                 ),
