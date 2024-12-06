@@ -55,16 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Image.network(
                 'https://ucarecdn.com/2aab5add-b7be-43c3-87ce-cd42861b24ae/kota_bunga__1_removebgpreview1.png',
-                height: 300),
+                height: 250),
             Text(
-              'Selamat datang di Venice Explorer',
+              'Selamat Datang ',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 100),
+            SizedBox(height: 20),
             TextField(
               decoration: InputDecoration(
                 labelText: 'Email',
@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               obscureText: true,
             ),
-            SizedBox(height: 20),
+            // SizedBox(height: 10),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
