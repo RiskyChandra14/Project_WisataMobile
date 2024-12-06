@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tb_pemrograman_mobile/itinerarry_2.dart';
+import 'package:tb_pemrograman_mobile/itinerary_1.dart';
+import 'package:tb_pemrograman_mobile/regist.dart';
 import 'package:tb_pemrograman_mobile/splash_screen.dart';
 
 void main() {

@@ -51,6 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  Image.network(
+                      'https://ucarecdn.com/2aab5add-b7be-43c3-87ce-cd42861b24ae/kota_bunga__1_removebgpreview1.png',
+                      height: 300),
                   Text(
                     'Daftar Akun',
                     style: TextStyle(
@@ -59,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 100),
+                  SizedBox(height: 20),
                   TextField(
                     decoration: InputDecoration(
                       labelText: 'Nama',

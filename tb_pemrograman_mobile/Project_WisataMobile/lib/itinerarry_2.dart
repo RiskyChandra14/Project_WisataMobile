@@ -39,7 +39,7 @@ class ItineraryScreen2 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(25),
               ),
               child: const Text(
-                'Add Itinerary',
+                'Itinerary',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 30,
