@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tb_pemrograman_mobile/homepage.dart';
-import 'package:tb_pemrograman_mobile/login.dart';
-import 'package:tb_pemrograman_mobile/regist.dart';
 import 'package:tb_pemrograman_mobile/splash_screen.dart';
 
 void main() {
@@ -15,12 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Venice Explorer',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 248, 247, 250)),
         useMaterial3: true,
       ),
-      home: Splash_screen(),
+      home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

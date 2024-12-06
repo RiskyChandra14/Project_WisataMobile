@@ -39,7 +39,10 @@ class Verifikasi extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0xFF55B967), Color(0xFF277999)],
+          colors: [
+            Color(0xFF55B967),
+            Color(0xFF277999)
+          ], // Warna gradien yang Anda inginkan
         ),
       ),
       child: Stack(

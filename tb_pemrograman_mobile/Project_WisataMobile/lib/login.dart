@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'regist.dart';
 
 void main() => runApp(LoginPage());
 
@@ -32,7 +33,11 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // Navigate back to the previous screen
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => RegistPage()), // Navigate to RegistPage
+            );
           },
         ),
       ),
@@ -83,9 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {
-                  // Implement forgot password functionality
-                },
+                onPressed: () {},
                 child: Text(
                   ' Lupa Password?',
                   style: TextStyle(
@@ -295,7 +298,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    // Implement registration navigation
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegistPage()),
+                    );
                   },
                   child: Text(
                     'Daftar',

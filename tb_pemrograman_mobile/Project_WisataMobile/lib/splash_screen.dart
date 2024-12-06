@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'regist.dart';
 
 void main() {
-  runApp(const Splash_screen());
+  runApp(const SplashScreen());
 }
 
-class Splash_screen extends StatelessWidget {
-  const Splash_screen({super.key});
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,13 @@ class Splash_screen extends StatelessWidget {
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => RegistPage()),
+      );
+    });
+
     return Column(
       children: [
         Container(
@@ -50,7 +58,7 @@ class Splash extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(
-                        "https://ucarecdn.com/dedda0fc-4ce3-4958-9383-9abf54d3ee0b/GIFTRANSFARAN.gif"), // Gambar dari CDN
+                        "https://ucarecdn.com/dedda0fc-4ce3-4958-9383-9abf54d3ee0b/GIFTRANSFARAN.gif"),
                     fit: BoxFit.fill,
                   ),
                 ),
