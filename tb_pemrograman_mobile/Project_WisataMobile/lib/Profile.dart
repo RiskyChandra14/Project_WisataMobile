@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tb_pemrograman_mobile/edit_profile.dart';
 
 void main() {
   runApp(const Profile_Screen());
@@ -187,15 +188,15 @@ class Profile extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 16),
             children: [
-              buildMenuItem('Edit Profile', Icons.arrow_forward),
+              buildMenuItem(context, 'Edit Profile', Icons.arrow_forward),
               SizedBox(height: 8),
-              buildMenuItem('Simpan', Icons.bookmark),
+              buildMenuItem(context, 'Simpan', Icons.bookmark),
               SizedBox(height: 8),
-              buildMenuItem('Pengaturan', Icons.settings),
+              buildMenuItem(context, 'Pengaturan', Icons.settings),
               SizedBox(height: 8),
-              buildMenuItem('Bantuan', Icons.help),
+              buildMenuItem(context, 'Bantuan', Icons.help),
               SizedBox(height: 8),
-              buildMenuItem('Keluar Akun', Icons.logout),
+              buildMenuItem(context, 'Keluar Akun', Icons.logout),
             ],
           ),
         ),
@@ -204,35 +205,47 @@ class Profile extends StatelessWidget {
   }
 
   // Helper function for creating button items
-  Widget buildMenuItem(String title, IconData icon) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 4,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black,
+  Widget buildMenuItem(BuildContext context, String title, IconData icon) {
+    return GestureDetector(
+      onTap: () {
+        print('$title ditekan');
+        if (title == 'Edit Profile') {
+          // Navigate to Edit Profile screen
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => EditProfile()),
+          );
+        }
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 4,
+              offset: Offset(0, 2),
             ),
-          ),
-          Icon(
-            icon,
-            color: Colors.black54,
-          ),
-        ],
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+              ),
+            ),
+            Icon(
+              icon,
+              color: Colors.black54,
+            ),
+          ],
+        ),
       ),
     );
   }
