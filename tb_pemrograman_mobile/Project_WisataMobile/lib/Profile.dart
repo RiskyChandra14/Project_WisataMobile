@@ -206,7 +206,7 @@ class Profile extends StatelessWidget {
 
   // Helper function for creating button items
   Widget buildMenuItem(BuildContext context, String title, IconData icon) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         print('$title ditekan');
         if (title == 'Edit Profile') {
@@ -217,6 +217,8 @@ class Profile extends StatelessWidget {
           );
         }
       },
+      splashColor: Colors.blue.withOpacity(0.3), // Highlight color
+      borderRadius: BorderRadius.circular(8),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
