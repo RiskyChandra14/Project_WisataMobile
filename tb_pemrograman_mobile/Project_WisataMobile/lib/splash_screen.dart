@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tb_pemrograman_mobile/login.dart';
 import 'regist.dart';
 
 void main() {
@@ -27,10 +28,10 @@ class SplashScreen extends StatelessWidget {
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => RegistPage()),
+        MaterialPageRoute(builder: (context) => LoginPage()),
       );
     });
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tb_pemrograman_mobile/splash_screen.dart';
+import 'package:tb_pemrograman_mobile/verifikasi.dart';
 import 'regist.dart';
 
 void main() => runApp(LoginPage());
@@ -36,7 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => RegistPage()), // Navigate to RegistPage
+                  builder: (context) =>
+                      SplashScreen()), // Navigate to RegistPage
             );
           },
         ),
@@ -55,16 +58,16 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Image.network(
                 'https://ucarecdn.com/2aab5add-b7be-43c3-87ce-cd42861b24ae/kota_bunga__1_removebgpreview1.png',
-                height: 300),
+                height: 250),
             Text(
-              'Selamat datang di Venice Explorer',
+              'Selamat Datang ',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 100),
+            SizedBox(height: 20),
             TextField(
               decoration: InputDecoration(
                 labelText: 'Email',
@@ -87,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               obscureText: true,
             ),
-            SizedBox(height: 20),
+            // SizedBox(height: 10),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
@@ -106,7 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => VerificationPage()),
+                );
+              },
               child: Text(
                 'Masuk',
                 style: TextStyle(

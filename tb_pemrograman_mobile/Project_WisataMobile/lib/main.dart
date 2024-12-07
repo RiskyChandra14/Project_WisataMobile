@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tb_pemrograman_mobile/Profile.dart';
+import 'package:tb_pemrograman_mobile/edit_profile.dart';
+import 'package:tb_pemrograman_mobile/forum.dart';
 import 'package:tb_pemrograman_mobile/itinerarry_2.dart';
 import 'package:tb_pemrograman_mobile/itinerary_1.dart';
 import 'package:tb_pemrograman_mobile/regist.dart';
 import 'package:tb_pemrograman_mobile/splash_screen.dart';
+import 'package:tb_pemrograman_mobile/verifikasi.dart';
 
 void main() {
   runApp(const MyApp());

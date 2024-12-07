@@ -1,207 +1,199 @@
 import 'package:flutter/material.dart';
+import 'package:tb_pemrograman_mobile/Profile.dart';
+import 'dart:async'; // Import untuk Timer
+import 'regist.dart'; // Import halaman Registrasi
+ // Misalnya halaman baru setelah verifikasi (ganti sesuai dengan halaman Anda)
 
-void main() {
-  runApp(const VerifikasiPage());
-}
+void main() => runApp(VerificationPage());
 
-class VerifikasiPage extends StatelessWidget {
-  const VerifikasiPage({super.key});
-
+class VerificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
-      home: Scaffold(
-        body: ListView(
-          padding: EdgeInsets.zero,
-          children: const [Verifikasi()],
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(title: 'Verification'),
+      color: Colors.green,
     );
   }
 }
 
-class Verifikasi extends StatelessWidget {
-  const Verifikasi({super.key});
+class MyHomePage extends StatefulWidget {
+  final String title;
+
+  MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<TextEditingController> _controllers = List.generate(
+      6, (index) => TextEditingController()); // List of controllers for each input field
+  int _counter = 60; // Durasi countdown
+  bool _canResend = true; // Tombol kirim ulang bisa ditekan saat pertama kali
+  late Timer _timer; // Timer untuk countdown
+
+  @override
+  void dispose() {
+    _timer.cancel(); // Pastikan timer berhenti saat widget dibuang
+    super.dispose();
+  }
+
+  // Fungsi untuk memulai countdown
+  void _startCountdown() {
+    setState(() {
+      _counter = 60;
+      _canResend = false; // Nonaktifkan tombol kirim ulang kode
+    });
+
+    // Timer yang akan menurunkan nilai counter setiap detik
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (_counter > 0) {
+        setState(() {
+          _counter--;
+        });
+      } else {
+        setState(() {
+          _canResend = true; // Setelah 60 detik, tombol bisa digunakan
+        });
+        _timer.cancel(); // Hentikan timer setelah countdown selesai
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Get screen width and height
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return Container(
-      width: screenWidth,
-      height: screenHeight,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xFF55B967),
-            Color(0xFF277999)
-          ], // Warna gradien yang Anda inginkan
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF55B967),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => RegistPage()),
+            );
+          },
         ),
       ),
-      child: Stack(
-        children: [
-          // "Kembali" Text at the top
-          Positioned(
-            top: 40,
-            left: screenWidth * 0.43,
-            child: Text(
-              'Kembali',
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF55B967), Color(0xFF277999)],
+          ),
+        ),
+        padding: EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.network(
+                'https://ucarecdn.com/2aab5add-b7be-43c3-87ce-cd42861b24ae/kota_bunga__1_removebgpreview1.png',
+                height: 250),
+            Text(
+              'Verifikasi Akun Anda',
               style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
-          ),
-
-          // Verification Information Section
-          Positioned(
-            top: screenHeight * 0.20,
-            left: screenWidth * 0.12,
-            child: Row(
-              children: [
-                // Image Icon Placeholder
-                Container(
-                  width: 60,
-                  height: 70,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          "https://ucarecdn.com/b7b09a59-9d5d-4617-8a50-3fdfb71eed4d/email.png"), // Gambar dari CDN
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 10),
-                // Text for Verification Instructions
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Verifikasi Kode',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      'Kode Verifikasi dikirim melalui Email Anda\nexample*****@gmail.com',
-                      style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+            SizedBox(height: 20),
+            Text(
+              'Masukkan kode verifikasi yang telah dikirimkan ke email Anda.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white70,
+              ),
             ),
-          ),
-
-          // Input box for the verification code
-          Positioned(
-            top: screenHeight * 0.38,
-            left: screenWidth * 0.18,
-            child: Row(
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(6, (index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 4),
-                  width: 47,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(3),
-                    border: Border.all(color: Colors.black.withOpacity(0.5)),
-                  ),
-                  child: Center(
-                    child: Text(
-                      (index + 1).toString(),
-                      style: TextStyle(
-                        color: Colors.black.withOpacity(0.75),
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  child: SizedBox(
+                    width: 40,
+                    child: TextField(
+                      controller: _controllers[index],
+                      textAlign: TextAlign.center,
+                      keyboardType: TextInputType.number,
+                      maxLength: 1,
+                      decoration: InputDecoration(
+                        counterText: "",
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
+                      onChanged: (value) {
+                        if (value.isNotEmpty && index < 5) {
+                          FocusScope.of(context)
+                              .nextFocus(); // Move focus to next field
+                        }
+                        if (value.isEmpty && index > 0) {
+                          FocusScope.of(context)
+                              .previousFocus(); // Move focus to previous field
+                        }
+                      },
                     ),
                   ),
                 );
               }),
             ),
-          ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                String verificationCode = _controllers
+                    .map((controller) => controller.text)
+                    .join(); // Join all inputs into one string
 
-          // "Verifikasi" Button
-          Positioned(
-            top: screenHeight * 0.55,
-            left: screenWidth * 0.18,
-            child: Container(
-              width: screenWidth * 0.64,
-              height: 57,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Color(0xFF140C47),
-                borderRadius: BorderRadius.circular(15),
+                print('Kode verifikasi: $verificationCode');
+
+                // Jika verifikasi berhasil, pindah ke halaman berikutnya
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile_Screen()), // Halaman setelah verifikasi berhasil
+                );
+              },
+              child: Text(
+                'Verifikasi',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
               ),
-              child: Center(
-                child: Text(
-                  'Verifikasi',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                backgroundColor: Colors.black,
+                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+              ),
+            ),
+            SizedBox(height: 15),
+            TextButton(
+              onPressed: _canResend
+                  ? () {
+                      // Logic for resending verification code
+                      print('Mengirim ulang kode verifikasi...');
+                      _startCountdown(); // Mulai countdown saat tombol ditekan
+                    }
+                  : null, // Disable button if timer is not finished
+              child: Text(
+                _canResend ? 'Kirim ulang kode?' : 'Tunggu $_counter detik',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w300,
                 ),
               ),
             ),
-          ),
-
-          // Resend Email text with Icon
-          Positioned(
-            top: screenHeight * 0.45,
-            left: screenWidth * 0.15,
-            child: Row(
-              children: [
-                Icon(
-                  Icons.email,
-                  size: 25,
-                  color: Colors.black.withOpacity(0.7),
-                ),
-                SizedBox(width: 8),
-                // Text for resend email option
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Belum dapat email kode verifikasinya?\n',
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(0.7),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'Kirim Lagi',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

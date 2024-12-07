@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Image.network(
                       'https://ucarecdn.com/2aab5add-b7be-43c3-87ce-cd42861b24ae/kota_bunga__1_removebgpreview1.png',
-                      height: 300),
+                      height: 250),
                   Text(
                     'Daftar Akun',
                     style: TextStyle(
@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: 20),
+                  // SizedBox(height: 20),
                   // Centered "I accept Privacy Policy + Terms of Use" with checkbox
                   Row(
                     mainAxisAlignment:
@@ -115,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             0xFF37B4FB), // Set checkbox color to blue when checked
                       ),
                       Text(
-                        'I accept Privacy Policy + Terms of Use',
+                        'I Accept Privacy Policy + Terms of Use',
                         style: TextStyle(
                           fontSize: 12,
                           fontFamily: 'Poppins',
@@ -152,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                     ),
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 10),
                   Column(
                     children: [
                       Container(
