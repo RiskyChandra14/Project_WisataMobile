@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tb_pemrograman_mobile/edit_profile.dart';
+<<<<<<< HEAD
 import 'package:tb_pemrograman_mobile/verifikasi.dart';
+=======
+>>>>>>> 58ccafd047ace1f323008a08c5203025e2df64af
 
 void main() {
   runApp(const Profile_Screen());
