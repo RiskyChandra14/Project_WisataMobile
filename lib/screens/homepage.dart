@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 // import 'package:tb_pemrograman_mobile/Profile.dart';
 import 'package:tb_pemrograman_mobile/models/KulinerModel.dart';
+import 'package:tb_pemrograman_mobile/models/VeniceModel.dart';
 import 'package:tb_pemrograman_mobile/models/WahanaModel.dart';
-import 'package:tb_pemrograman_mobile/models/veniceModel.dart';
 import 'package:tb_pemrograman_mobile/screens/detailmenu.dart';
+import 'package:tb_pemrograman_mobile/screens/detailrekom.dart';
 import 'package:tb_pemrograman_mobile/screens/detailwahana.dart';
 import 'package:tb_pemrograman_mobile/screens/detailwisata.dart';
 import 'package:tb_pemrograman_mobile/screens/editprofile.dart';
@@ -20,6 +21,7 @@ import 'package:tb_pemrograman_mobile/widgets/rekomPop.dart';
 // import 'package:tb_pemrograman_mobile/widgets/venice_explorer.dart';
 import 'package:tb_pemrograman_mobile/widgets/wahanaPop.dart';
 
+
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -31,7 +33,7 @@ class _HomepageState extends State<Homepage> {
   int selectedPage = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   // Daftar data VeniceModel
-  List<VeniceModel> venice = listVenices;
+  List<VeniceModel> rekomPopuler = listVenices;
   List<WahanaModel> wahana = listWahana;
    List<KulinerModel> kuliner = listKuliner;
   List<IconData> icons = [
@@ -119,7 +121,7 @@ class _HomepageState extends State<Homepage> {
                 leading: const Icon(Icons.logout),
                 title: const Text('Logout'),
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
                         pageBuilder: (_, __, ___) =>  LoginPage(),
@@ -229,7 +231,7 @@ class _HomepageState extends State<Homepage> {
               padding: const EdgeInsets.only(left: 15),
               child: Row(
                 children: List.generate(
-                  venice.length,
+                  rekomPopuler.length,
                   (index) => Padding(
                     padding: const EdgeInsets.only(right: 15),
                     child: GestureDetector(
@@ -335,15 +337,20 @@ class _HomepageState extends State<Homepage> {
               padding: const EdgeInsets.only(left: 15),
               child: Row(
                 children: List.generate(
-                  venice.length,
+                  rekomPopuler.length,
                   (index) => Padding(
                     padding: const EdgeInsets.only(right: 15),
                     child: GestureDetector(
                       onTap: () {
-                        // Aksi ketika destinasi ditekan
-                        print("Destinasi diklik!");
+                         Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => DetailRekomendasi(
+                               rekomPopuler:rekomPopuler[index]),
+                          ),
+                       );
                       },
-                      child: Rekompop(rekomPopuler: venice[index]),
+                      child: Rekompop(rekomPopuler:rekomPopuler[index]),
                     ),
                   ),
                 ),

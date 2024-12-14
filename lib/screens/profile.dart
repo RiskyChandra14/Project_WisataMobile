@@ -5,6 +5,7 @@ import 'package:tb_pemrograman_mobile/screens/homepage.dart';
 import 'package:tb_pemrograman_mobile/screens/detailwisata.dart';
 import 'package:tb_pemrograman_mobile/screens/itineraryMain.dart';
 import 'package:tb_pemrograman_mobile/screens/kulinerScreen.dart';
+import 'package:tb_pemrograman_mobile/screens/login.dart';
 import 'package:tb_pemrograman_mobile/screens/pesanan.dart';
 
 void main() {
@@ -76,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
               _buildMenuItem(context, Icons.bookmark, 'Save', null),
               _buildMenuItem(context, Icons.feedback, 'Send Feedback', null),
               _buildMenuItem(context, Icons.help_outline, 'Help', null),
-              _buildMenuItem(context, Icons.logout, 'Logout', null),
+              _buildMenuItem(context, Icons.logout, 'Logout', LoginPage()),
               const SizedBox(height: 20),
             ],
           ),

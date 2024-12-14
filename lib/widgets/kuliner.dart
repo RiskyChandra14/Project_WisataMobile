@@ -110,7 +110,7 @@ class RekomendasiKuliner extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: "Diskon${kuliner.diskon}%",
+                      text: "Diskon ${kuliner.diskon}%",
                       style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tb_pemrograman_mobile/screens/detailwisata.dart';
+import 'package:tb_pemrograman_mobile/screens/editprofile.dart';
 import 'package:tb_pemrograman_mobile/screens/homepage.dart';
 import 'package:tb_pemrograman_mobile/screens/itineraryMain.dart';
 import 'package:tb_pemrograman_mobile/screens/kulinerScreen.dart';
+import 'package:tb_pemrograman_mobile/screens/login.dart';
 import 'package:tb_pemrograman_mobile/screens/pesanan.dart';
+import 'package:tb_pemrograman_mobile/screens/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +36,7 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
- int selectedPage = 0;
+ int selectedPage = 5;
 
   final List<IconData> icons = [
     Icons.home_filled,
@@ -125,21 +128,36 @@ class _ChatScreenState extends State<ChatScreen> {
                 leading: const Icon(Icons.account_circle),
                 title: const Text('Profile'),
                 onTap: () {
-                  Navigator.pop(context);
+                      Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => const EditProfilePage(),
+                      ),
+                    );
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.settings),
                 title: const Text('Settings'),
                 onTap: () {
-                  Navigator.pop(context);
+                      Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => const ProfilePage(),
+                      ),
+                    );
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.logout),
                 title: const Text('Logout'),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (_, __, ___) =>  LoginPage(),
+                      ),
+                    );
                 },
               ),
             ],

@@ -222,20 +222,43 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
                 ),
               ),
               const SizedBox(height: 24),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(18),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF140C47),
-                  borderRadius: BorderRadius.circular(18),
-                ),
-                child: const Center(
-                  child: Text(
-                    'SAVE ITINERARY',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+              // Container(
+              //   width: double.infinity,
+              //   padding: const EdgeInsets.all(18),
+              //   decoration: BoxDecoration(
+              //     color: const Color(0xFF140C47),
+              //     borderRadius: BorderRadius.circular(18),
+              //   ),
+                
+              //   child: const Center(
+              //     child: Text(
+              //       'SAVE ITINERARY',
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //         fontSize: 18,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //   ),
+                   GestureDetector(
+                onTap: () {
+                  _showSaveConfirmationDialog();
+                },
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF140C47),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'SAVE ITINERARY',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -248,7 +271,35 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
       bottomNavigationBar: _buildNavbar(),
     );
   }
-
+ void _showSaveConfirmationDialog() {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+                    title: Text('Simpan Itinerary?'),
+                    content: Text(
+                        'Apakah anda yakin ingin menyimpan itinerary?'),
+                    actions: [
+                      TextButton(
+                        child: Text('Batal'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      TextButton(
+                        child: Text('Ya'),
+                        onPressed: () {
+                          // Tambahkan ke keranjang
+                          print(
+                              'ditambahkan ke simpan itinerary.');
+                          Navigator.of(context).pop();
+                        },
+                      ),
+        ],
+      );
+    },
+  );
+}
   Widget _buildNavbar() {
     return Container(
       height: 70,
@@ -289,7 +340,7 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _navigateToPage(int index) {
     switch (index) {
-       case 0:
+                   case 0:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(

@@ -286,7 +286,7 @@ class _ItineraryScreenState extends State<ItineraryMainScreen> {
       ),
   floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
           context,
           PageRouteBuilder(pageBuilder: (_, __, ___) => const ItineraryScreen()),
         );

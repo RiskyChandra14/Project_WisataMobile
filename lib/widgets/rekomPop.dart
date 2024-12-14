@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:tb_pemrograman_mobile/models/KulinerModel.dart';
 // import 'package:tb_pemrograman_mobile/models/WahanaModel.dart';
-import 'package:tb_pemrograman_mobile/models/veniceModel.dart';
+import 'package:tb_pemrograman_mobile/models/VeniceModel.dart';
 
 class Rekompop extends StatelessWidget {
   final VeniceModel rekomPopuler;
