@@ -34,15 +34,15 @@ class ItineraryScreen extends StatefulWidget {
 }
 
 class _ItineraryScreenState extends State<ItineraryScreen> {
-  int selectedPage = 2;
+  int selectedPage = 1;
 
   final List<IconData> icons = [
     Icons.home_filled,
-    Icons.info,
+   // Icons.info,
     Icons.access_time,
     Icons.restaurant,
     Icons.shopping_cart_outlined,
-    Icons.chat,
+   // Icons.chat,
   ];
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -112,6 +112,19 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
                       context,
                       PageRouteBuilder(
                         pageBuilder: (_, __, ___) => const ProfilePage(),
+                      ),
+                    );
+                    
+                },
+              ),
+                 ListTile(
+                leading: const Icon(Icons.chat),
+                title: const Text('Forum chat'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => const ChatScreen(),
                       ),
                     );
                     
@@ -348,21 +361,21 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
                       ),
                     );
                     break;
+                  // case 1:
+                  //   Navigator.pushReplacement(
+                  //     context,
+                  //     PageRouteBuilder(
+                  //       pageBuilder: (_, __, ___) => const Detailwisata(),
+                  //     ),
+                  //   );
+                  //   break;
                   case 1:
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const Detailwisata(),
-                      ),
-                    );
-                    break;
-                  case 2:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(pageBuilder: (_, __, ___) => const ItineraryMainScreen()),
                     );
                     break;
-                  case 3:
+                  case 2:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -370,7 +383,7 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
                       ),
                     );
                     break;
-                  case 4:
+                  case 3:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -378,14 +391,14 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
                       ),
                     );
                     break;
-                     case 5:
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const ChatScreen(),
-                      ),
-                    );
-                    break;
+                    //  case 5:
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   PageRouteBuilder(
+                    //     pageBuilder: (_, __, ___) => const ChatScreen(),
+                    //   ),
+                    // );
+                    // break;
                   default:
     }
   }

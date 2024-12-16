@@ -36,15 +36,15 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
- int selectedPage = 5;
+ int selectedPage = 10;
 
   final List<IconData> icons = [
     Icons.home_filled,
-    Icons.info,
+   // Icons.info,
     Icons.access_time,
     Icons.restaurant,
     Icons.shopping_cart_outlined,
-    Icons.chat,
+  //  Icons.chat,
   ];
 
   List<Map<String, dynamic>> _messages = [];
@@ -146,6 +146,19 @@ class _ChatScreenState extends State<ChatScreen> {
                         pageBuilder: (_, __, ___) => const ProfilePage(),
                       ),
                     );
+                },
+              ),
+                 ListTile(
+                leading: const Icon(Icons.chat),
+                title: const Text('Forum chat'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => const ChatScreen(),
+                      ),
+                    );
+                    
                 },
               ),
               ListTile(
@@ -319,21 +332,21 @@ class _ChatScreenState extends State<ChatScreen> {
                       ),
                     );
                     break;
+                  // case 1:
+                  //   Navigator.pushReplacement(
+                  //     context,
+                  //     PageRouteBuilder(
+                  //       pageBuilder: (_, __, ___) => const Detailwisata(),
+                  //     ),
+                  //   );
+                  //   break;
                   case 1:
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const Detailwisata(),
-                      ),
-                    );
-                    break;
-                  case 2:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(pageBuilder: (_, __, ___) => const ItineraryMainScreen()),
                     );
                     break;
-                  case 3:
+                  case 2:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -341,7 +354,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       ),
                     );
                     break;
-                  case 4:
+                  case 3:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -349,14 +362,14 @@ class _ChatScreenState extends State<ChatScreen> {
                       ),
                     );
                     break;
-                     case 5:
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const ChatScreen(),
-                      ),
-                    );
-                    break;
+                    //  case 5:
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   PageRouteBuilder(
+                    //     pageBuilder: (_, __, ___) => const ChatScreen(),
+                    //   ),
+                    // );
+                    // break;
                   default:
                 }
               });

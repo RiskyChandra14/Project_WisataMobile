@@ -38,11 +38,11 @@ class _HomepageState extends State<Homepage> {
    List<KulinerModel> kuliner = listKuliner;
   List<IconData> icons = [
     Icons.home_filled,
-    Icons.info,
+   // Icons.info,
     Icons.access_time,
     Icons.restaurant,
     Icons.shopping_cart_outlined,
-    Icons.chat,
+   // Icons.chat,
   ];
 
   @override
@@ -99,6 +99,19 @@ class _HomepageState extends State<Homepage> {
                       context,
                       PageRouteBuilder(
                         pageBuilder: (_, __, ___) => const EditProfilePage(),
+                      ),
+                    );
+                    
+                },
+              ),
+               ListTile(
+                leading: const Icon(Icons.chat),
+                title: const Text('Forum chat'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => const ChatScreen(),
                       ),
                     );
                     
@@ -464,21 +477,21 @@ class _HomepageState extends State<Homepage> {
                       ),
                     );
                     break;
+                  // case 1:
+                  //   Navigator.pushReplacement(
+                  //     context,
+                  //     PageRouteBuilder(
+                  //       pageBuilder: (_, __, ___) => const Detailwisata(),
+                  //     ),
+                  //   );
+                  //   break;
                   case 1:
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const Detailwisata(),
-                      ),
-                    );
-                    break;
-                  case 2:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(pageBuilder: (_, __, ___) => const ItineraryMainScreen()),
                     );
                     break;
-                  case 3:
+                  case 2:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -486,7 +499,7 @@ class _HomepageState extends State<Homepage> {
                       ),
                     );
                     break;
-                  case 4:
+                  case 3:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -494,14 +507,14 @@ class _HomepageState extends State<Homepage> {
                       ),
                     );
                     break;
-                     case 5:
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const ChatScreen(),
-                      ),
-                    );
-                    break;
+                    //  case 5:
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   PageRouteBuilder(
+                    //     pageBuilder: (_, __, ___) => const ChatScreen(),
+                    //   ),
+                    // );
+                    // break;
                   default:
                 }
               });

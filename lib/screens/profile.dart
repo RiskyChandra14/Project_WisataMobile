@@ -36,11 +36,11 @@ class _ProfilePageState extends State<ProfilePage> {
 
   final List<IconData> icons = [
     Icons.home_filled,
-    Icons.info,
+    //Icons.info,
     Icons.access_time,
     Icons.restaurant,
     Icons.shopping_cart_outlined,
-    Icons.chat,
+   // Icons.chat,
   ];
 
   @override
@@ -74,6 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
               const ProfileContainer(),
               const SizedBox(height: 20),
               _buildMenuItem(context, Icons.edit, 'Edit Profile', const EditProfilePage()),
+              _buildMenuItem(context, Icons.info, 'Detail Wisata', const Detailwisata()),
               _buildMenuItem(context, Icons.bookmark, 'Save', null),
               _buildMenuItem(context, Icons.feedback, 'Send Feedback', null),
               _buildMenuItem(context, Icons.help_outline, 'Help', null),
@@ -141,21 +142,21 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     );
                     break;
+                  // case 1:
+                  //   Navigator.pushReplacement(
+                  //     context,
+                  //     PageRouteBuilder(
+                  //       pageBuilder: (_, __, ___) => const Detailwisata(),
+                  //     ),
+                  //   );
+                  //   break;
                   case 1:
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const Detailwisata(),
-                      ),
-                    );
-                    break;
-                  case 2:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(pageBuilder: (_, __, ___) => const ItineraryMainScreen()),
                     );
                     break;
-                  case 3:
+                  case 2:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -163,7 +164,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     );
                     break;
-                  case 4:
+                  case 3:
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -171,14 +172,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     );
                     break;
-                     case 5:
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const ChatScreen(),
-                      ),
-                    );
-                    break;
+                    // case 5:
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   PageRouteBuilder(
+                    //     pageBuilder: (_, __, ___) => const ChatScreen(),
+                    //   ),
+                    // );
+                    // break;
                   default:
                 }
               });
